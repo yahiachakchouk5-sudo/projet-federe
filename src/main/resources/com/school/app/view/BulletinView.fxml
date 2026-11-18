@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<VBox spacing="15" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.school.app.controller.BulletinController">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <HBox fx:id="controlBox" spacing="10" alignment="CENTER_LEFT">
+        <ComboBox fx:id="classeCombo" promptText="Choisir Classe"/>
+        <ComboBox fx:id="inscriptionCombo" promptText="Choisir Élève"/>
+        <Button text="Générer Bulletin" onAction="#handleGenerate"/>
+    </HBox>
+
+    <Separator/>
+
+    <VBox fx:id="bulletinContainer" spacing="10" style="-fx-border-color: #bdc3c7; -fx-padding: 30; -fx-background-color: white;" visible="false">
+        <HBox alignment="CENTER">
+            <Text text="Bulletin de Notes Trimestriel" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+        </HBox>
+        
+        <GridPane hgap="40" vgap="5">
+            <Label text="Élève:" GridPane.columnIndex="0" GridPane.rowIndex="0" style="-fx-font-weight: bold;"/>
+            <Label fx:id="eleveLabel" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            
+            <Label text="Classe:" GridPane.columnIndex="0" GridPane.rowIndex="1" style="-fx-font-weight: bold;"/>
+            <Label fx:id="classeLabel" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            
+            <Label text="Année:" GridPane.columnIndex="2" GridPane.rowIndex="1" style="-fx-font-weight: bold;"/>
+            <Label fx:id="anneeLabel" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+        </GridPane>
+
+        <TableView fx:id="notesTable" prefHeight="200">
+            <columns>
+                <TableColumn fx:id="matiereCol" text="Matière" prefWidth="250"/>
+                <TableColumn fx:id="noteCol" text="Note" prefWidth="100"/>
+                <TableColumn fx:id="coefCol" text="Coef" prefWidth="80"/>
+            </columns>
+        </TableView>
+
+        <HBox spacing="50" alignment="CENTER_RIGHT">
+            <VBox spacing="5">
+                <HBox spacing="10">
+                    <Label text="Moyenne Générale:" style="-fx-font-weight: bold;"/>
+                    <Label fx:id="moyenneLabel" style="-fx-font-size: 16px; -fx-text-fill: #e67e22;"/>
+                </HBox>
+                <HBox spacing="10">
+                    <Label text="Rang:" style="-fx-font-weight: bold;"/>
+                    <Label fx:id="rangLabel"/>
+                </HBox>
+            </VBox>
+        </HBox>
+        
+        <VBox spacing="5">
+            <Label text="Appréciation:" style="-fx-font-weight: bold;"/>
+            <TextArea fx:id="appreciationArea" prefHeight="60" promptText="Saisir appréciation..."/>
+        </VBox>
+    </VBox>
+</VBox>

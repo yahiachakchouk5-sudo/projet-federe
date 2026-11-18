@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.school.app.controller.EnseignantController">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Gestion des Professeurs" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="codeField" promptText="Code"/>
+        <TextField fx:id="nomField" promptText="Nom"/>
+        <TextField fx:id="prenomField" promptText="Prénom"/>
+        <TextField fx:id="phoneField" promptText="Téléphone"/>
+        <TextField fx:id="userField" promptText="Identifiant"/>
+        <PasswordField fx:id="passField" promptText="Mot de passe"/>
+        <Button text="Ajouter" onAction="#handleAddEnseignant"/>
+    </HBox>
+
+    <Separator/>
+    
+    <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #f8f9fa; -fx-padding: 10; -fx-border-color: #dee2e6;">
+        <Label text="Affectation:" style="-fx-font-weight: bold;"/>
+        <ComboBox fx:id="enseignantCombo" promptText="Choisir Professeur"/>
+        <ComboBox fx:id="classeCombo" promptText="Choisir Classe" prefWidth="150"/>
+        <Button text="Affecter à la classe" onAction="#handleAffectation" style="-fx-background-color: #3498db; -fx-text-fill: white;"/>
+    </HBox>
+
+    <TableView fx:id="enseignantTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="codeCol" text="Code" prefWidth="100"/>
+            <TableColumn fx:id="nomCol" text="Nom" prefWidth="150"/>
+            <TableColumn fx:id="prenomCol" text="Prénom" prefWidth="150"/>
+        </columns>
+    </TableView>
+</VBox>

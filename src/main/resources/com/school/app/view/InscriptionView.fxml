@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.school.app.controller.InscriptionController">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Gestion des Inscriptions" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <ComboBox fx:id="eleveCombo" promptText="Choisir Élève"/>
+        <ComboBox fx:id="anneeCombo" promptText="Année Scolaire"/>
+        <ComboBox fx:id="niveauCombo" promptText="Niveau"/>
+        <TextField fx:id="niveauEtudeField" promptText="Détail Niveau (ex: GLSI)"/>
+        <Button text="Inscrire" onAction="#handleInscription"/>
+    </HBox>
+
+    <TableView fx:id="inscriptionTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="idCol" text="ID" prefWidth="50"/>
+            <TableColumn fx:id="eleveCol" text="Élève" prefWidth="200"/>
+            <TableColumn fx:id="anneeCol" text="Année" prefWidth="100"/>
+            <TableColumn fx:id="niveauCol" text="Niveau" prefWidth="150"/>
+        </columns>
+    </TableView>
+</VBox>

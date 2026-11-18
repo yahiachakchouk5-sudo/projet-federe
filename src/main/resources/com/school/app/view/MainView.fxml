@@ -1,0 +1,53 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.school.app.controller.MainController">
+    <top>
+        <MenuBar>
+            <Menu text="Fichier">
+                <MenuItem text="Quitter" onAction="#handleExit"/>
+            </Menu>
+            <Menu text="Aide">
+                <MenuItem text="À propos"/>
+            </Menu>
+        </MenuBar>
+    </top>
+    <center>
+        <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE">
+            <Tab fx:id="tabDashboard" text="Tableau de Bord">
+                <fx:include fx:id="dashboardContent" source="DashboardView.fxml"/>
+            </Tab>
+            <Tab fx:id="tabEleve" text="Étudiants">
+                <fx:include fx:id="eleveContent" source="EleveView.fxml"/>
+            </Tab>
+            <Tab fx:id="tabInscription" text="Inscriptions">
+                <fx:include fx:id="inscriptionContent" source="InscriptionView.fxml"/>
+            </Tab>
+            <Tab fx:id="tabClasse" text="Classes">
+                <fx:include fx:id="classeContent" source="ClasseView.fxml"/>
+            </Tab>
+            <Tab fx:id="tabMatiere" text="Matières">
+                <fx:include fx:id="matiereContent" source="MatiereView.fxml"/>
+            </Tab>
+            <Tab fx:id="tabNote" text="Notes">
+                <fx:include fx:id="noteContent" source="NoteView.fxml"/>
+            </Tab>
+            <Tab fx:id="tabBulletin" text="Bulletins">
+                <fx:include fx:id="bulletinContent" source="BulletinView.fxml"/>
+            </Tab>
+            <Tab fx:id="tabProf" text="Professeurs">
+                <fx:include fx:id="profContent" source="EnseignantView.fxml"/>
+            </Tab>
+        </TabPane>
+    </center>
+    <bottom>
+        <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #eee;">
+            <padding>
+                <Insets top="5" right="5" bottom="5" left="5"/>
+            </padding>
+            <Label fx:id="statusLabel" text="Système Prêt" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+            <Button text="Déconnexion" onAction="#handleLogout" style="-fx-background-color: #e74c3c; -fx-text-fill: white;"/>
+        </HBox>
+    </bottom>
+</BorderPane>

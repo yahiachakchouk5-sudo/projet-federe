@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.school.app.controller.MatiereController">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Gestion des Matières" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="nomMatiereField" promptText="Nom de la matière"/>
+        <ComboBox fx:id="niveauCombo" promptText="Niveau"/>
+        <Button text="Ajouter Matière" onAction="#handleAddMatiere"/>
+    </HBox>
+
+    <TableView fx:id="matiereTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="idCol" text="ID" prefWidth="50"/>
+            <TableColumn fx:id="nomCol" text="Matière" prefWidth="250"/>
+            <TableColumn fx:id="niveauCol" text="ID Niveau" prefWidth="100"/>
+        </columns>
+    </TableView>
+</VBox>

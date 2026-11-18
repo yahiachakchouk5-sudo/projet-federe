@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.school.app.controller.ClasseController">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Gestion des Classes et Affectations" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+
+    <HBox fx:id="adminBar1" spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="nomClasseField" promptText="Nom Classe (ex: 2A)"/>
+        <ComboBox fx:id="niveauCombo" promptText="Niveau"/>
+        <Button text="Créer Classe" onAction="#handleCreateClasse"/>
+    </HBox>
+
+    <Separator fx:id="adminSep"/>
+
+    <HBox fx:id="adminBar2" spacing="10" alignment="CENTER_LEFT">
+        <Label text="Affecter Élève:"/>
+        <ComboBox fx:id="inscriptionCombo" promptText="Choisir Inscription"/>
+        <ComboBox fx:id="classeCombo" promptText="Choisir Classe"/>
+        <Button text="Affecter" onAction="#handleAffectation"/>
+    </HBox>
+
+    <HBox spacing="10" VBox.vgrow="ALWAYS">
+        <VBox spacing="5" prefWidth="400">
+            <Label text="Liste des Classes" style="-fx-font-weight: bold;"/>
+            <TableView fx:id="classeTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="idCol" text="ID" prefWidth="50"/>
+                    <TableColumn fx:id="nomCol" text="Nom" prefWidth="150"/>
+                    <TableColumn fx:id="niveauCol" text="Niveau" prefWidth="150"/>
+                </columns>
+            </TableView>
+        </VBox>
+        
+        <VBox spacing="5" HBox.hgrow="ALWAYS">
+            <Label text="Élèves de la classe sélectionnée" style="-fx-font-weight: bold;"/>
+            <TableView fx:id="studentTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="studentNameCol" text="Nom de l'étudiant" prefWidth="250"/>
+                    <TableColumn fx:id="studentIdCol" text="ID Inscription" prefWidth="100"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </HBox>
+</VBox>
